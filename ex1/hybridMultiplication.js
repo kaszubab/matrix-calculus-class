@@ -1,4 +1,5 @@
 const { strassenAlgorithm, strassenAlgorithmWithOperationCounting } = require('./strassenMultiplication')
+const { basicMultiplication, basicMultiplicationWithOperationCounting } = require('./basicMultiplication')
 
 const hybridMultiplication = (matrixA, matrixB, thresholdSize) =>
   matrixA.length > thresholdSize
