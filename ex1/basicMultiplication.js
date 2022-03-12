@@ -28,7 +28,7 @@ const basicMultiplicationWithOperationCounting = (matrixA, matrixB) => {
             sumMatrix[i].push(sum);
         }
     }
-    return  {sumMatrix, fpOperations};
+    return  [sumMatrix, fpOperations];
 };
 
 
