@@ -36,11 +36,18 @@ const generateMatrix = (size) => {
   return matrix
 }
 
-const [inputFile1, inputFile2, outputFile, thresholdSize] = process.argv.slice(2, 6);
+const [inputFile1, inputFile2, outputFile, dummyOperation, counting, thresholdSize] = process.argv.slice(2, 8);
 
 const matrixA = JSON.parse(fs.readFileSync(inputFile1));
 const matrixB = JSON.parse(fs.readFileSync(inputFile2));
 
-const resultMatrix = hybridMultiplication(matrixA, matrixB, thresholdSize)
+let result;
+if(dummyOperation == 'True') {
+    result = matrixA
+} else if(counting == 'True') {
+    result = hybridMultiplicationWithOperationCounting(matrixA, matrixB, thresholdSize)
+} else {
+    result = hybridMultiplication(matrixA, matrixB, thresholdSize)
+}
 
-fs.writeFileSync(outputFile, JSON.stringify(resultMatrix));
+fs.writeFileSync(outputFile, JSON.stringify(result));
